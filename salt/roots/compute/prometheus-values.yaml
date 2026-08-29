@@ -1,0 +1,34 @@
+prometheus:
+  prometheusSpec:
+    additionalScrapeConfigs:
+      - job_name: 'node-exporter-external'
+        static_configs:
+          - targets:
+              - '{{ pillar["cluster"]["controller_ip"] }}:9100'
+              - '{{ pillar["cluster"]["compute_ip"] }}:9100'
+      - job_name: 'metrics-gateway'
+        static_configs:
+          - targets:
+              - 'metrics-gateway:8000'
+
+grafana:
+  adminPassword: "{{ pillar['grafana']['admin_password'] }}"
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
+
+  dashboards:
+    default:
+      node-exporter-full:
+        gnetId: 1860
+        revision: 31
+        datasource: Prometheus

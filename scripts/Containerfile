@@ -1,0 +1,7 @@
+FROM ubuntu:24.04
+ARG SLURM_VERSION
+COPY slurm-common_${SLURM_VERSION}_amd64.deb /tmp/slurm-common.deb
+COPY slurm-client_${SLURM_VERSION}_amd64.deb /tmp/slurm-client.deb
+RUN apt-get update && \
+    apt-get install -y munge /tmp/slurm-common.deb /tmp/slurm-client.deb && \
+    rm /tmp/slurm-common.deb /tmp/slurm-client.deb

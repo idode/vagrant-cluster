@@ -1,0 +1,12 @@
+replicaCount: 1
+
+image:
+  repository: localhost/metrics-gateway
+  tag: latest
+  pullPolicy: Never
+
+service:
+  port: 8000
+  nodePort: 30080
+  
+containerPort: 8000

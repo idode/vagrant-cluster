@@ -1,0 +1,17 @@
+ClusterName=vagrant-hpc
+SlurmctldHost=controller({{ pillar['cluster']['controller_ip'] }})
+MpiDefault=none
+ProctrackType=proctrack/linuxproc
+ReturnToService=1
+SlurmctldPidFile=/var/run/slurmctld.pid
+SlurmdPidFile=/var/run/slurmd.pid
+SlurmdSpoolDir=/var/spool/slurmd
+StateSaveLocation=/var/spool/slurmctld
+SlurmUser=slurm
+TaskPlugin=task/none
+AccountingStorageType=accounting_storage/slurmdbd
+AccountingStorageHost=controller
+AccountingStoragePort=6819
+
+NodeName=compute CPUs=2 State=UNKNOWN
+PartitionName=debug Nodes=compute Default=YES MaxTime=INFINITE State=UP

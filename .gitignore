@@ -1,0 +1,5 @@
+.vagrant/
+shared/*.deb
+shared/*.tar
+sdasd/
+.claude/
