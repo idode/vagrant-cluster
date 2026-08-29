@@ -1,4 +1,4 @@
-# vagrant-hpc-cluster
+# vagrant-cluster
 
 A self-contained, 3-VM HPC lab built with Vagrant + VirtualBox + SaltStack: a Slurm
 cluster (controller + compute) with accounting, plus a lightweight k3s-based
