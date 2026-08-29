@@ -125,4 +125,4 @@ These are known, not accidental — flagged here rather than fixed silently:
 - `metrics-gateway`'s `PUT /update-metric` has no authentication and does minimal input validation.
 - Container image tags (`node-exporter:latest`, `metrics-gateway:latest`) aren't pinned, and `requirements.txt` doesn't pin a Flask version — rebuilds aren't guaranteed reproducible.
 - The Python interpreter path in `salt/roots/controller/mariadb.sls` (`/opt/saltstack/salt/bin/python3.14`) is hardcoded to one Salt onedir bundle's Python version rather than derived dynamically.
-- `shared/slurm_23.11.4_amd64.deb` and `shared/slurm-client_23.11.4.tar` are unused/unexplained build artifacts, kept as-is pending investigation.
+
